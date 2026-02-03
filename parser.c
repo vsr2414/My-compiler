@@ -3,6 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 
+/* ---------- TOKEN DEFINITIONS ---------- */
+
 typedef enum {
     TOKEN_INT,
     TOKEN_PRINT,
