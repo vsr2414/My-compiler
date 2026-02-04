@@ -273,3 +273,9 @@ int main(int argc, char *argv[]) {
     fclose(source);
     return 0;
 }
+
+"""
+gcc parser.c -o parser
+./parser input.txt
+
+"""
