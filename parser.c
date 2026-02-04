@@ -278,4 +278,12 @@ int main(int argc, char *argv[]) {
 gcc parser.c -o parser
 ./parser input.txt
 
+input.txt
+
+int y = 5;
+int x = 20;
+int z = x + y;
+print(z);
+
+
 """
