@@ -254,3 +254,22 @@ int parseTerm() {
     error("Invalid expression");
     return 0;
 }
+
+/* ---------- MAIN ---------- */
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: ./parser <inputfile>\n");
+        return 1;
+    }
+
+    source = fopen(argv[1], "r");
+    if (!source) {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    parseProgram();
+    fclose(source);
+    return 0;
+}
