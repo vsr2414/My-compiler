@@ -149,3 +149,108 @@ void error(const char *msg) {
     printf("Error: %s\n", msg);
     exit(1);
 }
+
+/* ---------- PARSER ---------- */
+
+void parseProgram() {
+    advance();
+    while (currentToken.type != TOKEN_EOF) {
+        parseStatement();
+    }
+}
+
+void parseStatement() {
+    if (currentToken.type == TOKEN_INT)
+        parseDeclaration();
+    else if (currentToken.type == TOKEN_PRINT)
+        parsePrint();
+    else
+        error("Invalid statement");
+}
+
+void parseDeclaration() {
+    advance(); /* consume int */
+
+    if (currentToken.type != TOKEN_ID)
+        error("Expected identifier after int");
+
+    char varName[50];
+    strcpy(varName, currentToken.lexeme);
+    advance();
+
+    if (currentToken.type != TOKEN_ASSIGN)
+        error("Expected =");
+
+    advance();
+    int value = parseExpression();
+
+    if (currentToken.type != TOKEN_SEMI)
+        error("Missing semicolon");
+
+    addSymbol(varName, value);
+    advance();
+}
+
+void parsePrint() {
+    advance(); /* consume print */
+
+    if (currentToken.type != TOKEN_LPAREN)
+        error("Expected (");
+
+    advance();
+
+    if (currentToken.type != TOKEN_ID)
+        error("Expected identifier inside print");
+
+    int index = findSymbol(currentToken.lexeme);
+    if (index == -1)
+        error("Undeclared variable in print");
+
+    printf("%d\n", table[index].value);
+    advance();
+
+    if (currentToken.type != TOKEN_RPAREN)
+        error("Expected )");
+
+    advance();
+
+    if (currentToken.type != TOKEN_SEMI)
+        error("Missing semicolon after print");
+
+    advance();
+}
+
+int parseExpression() {
+    int left = parseTerm();
+
+    if (currentToken.type == TOKEN_PLUS) {
+        advance();
+        int right = parseTerm();
+        return left + right;
+    }
+
+    return left;
+}
+
+int parseTerm() {
+    int value;
+
+    if (currentToken.type == TOKEN_NUMBER) {
+        value = atoi(currentToken.lexeme);
+        advance();
+        return value;
+    }
+
+    if (currentToken.type == TOKEN_ID) {
+        int index = findSymbol(currentToken.lexeme);
+        if (index == -1)
+            error("Undeclared variable");
+
+        value = table[index].value;
+        advance();
+        return value;
+    }
+
+    error("Invalid expression");
+    return 0;
+}
