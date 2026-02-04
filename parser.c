@@ -73,3 +73,79 @@ void addSymbol(const char *name, int value) {
     table[symbolCount].value = value;
     symbolCount++;
 }
+
+/* ---------- TOKENIZER ---------- */
+
+Token getNextToken() {
+    Token token;
+    int c;
+
+    while ((c = fgetc(source)) != EOF && isspace(c));
+
+    if (c == EOF) {
+        token.type = TOKEN_EOF;
+        return token;
+    }
+
+    /* Identifier or keyword */
+    if (isalpha(c)) {
+        int i = 0;
+        token.lexeme[i++] = c;
+
+        while (isalnum(c = fgetc(source))) {
+            token.lexeme[i++] = c;
+        }
+        token.lexeme[i] = '\0';
+        ungetc(c, source);
+
+        if (strcmp(token.lexeme, "int") == 0)
+            token.type = TOKEN_INT;
+        else if (strcmp(token.lexeme, "print") == 0)
+            token.type = TOKEN_PRINT;
+        else
+            token.type = TOKEN_ID;
+
+        return token;
+    }
+
+    /* Number */
+    if (isdigit(c)) {
+        int i = 0;
+        token.lexeme[i++] = c;
+
+        while (isdigit(c = fgetc(source))) {
+            token.lexeme[i++] = c;
+        }
+        token.lexeme[i] = '\0';
+        ungetc(c, source);
+
+        token.type = TOKEN_NUMBER;
+        return token;
+    }
+
+    /* Symbols */
+    token.lexeme[0] = c;
+    token.lexeme[1] = '\0';
+
+    switch (c) {
+        case '=': token.type = TOKEN_ASSIGN; break;
+        case '+': token.type = TOKEN_PLUS; break;
+        case ';': token.type = TOKEN_SEMI; break;
+        case '(': token.type = TOKEN_LPAREN; break;
+        case ')': token.type = TOKEN_RPAREN; break;
+        default:  token.type = TOKEN_INVALID;
+    }
+
+    return token;
+}
+
+/* ---------- PARSER HELPERS ---------- */
+
+void advance() {
+    currentToken = getNextToken();
+}
+
+void error(const char *msg) {
+    printf("Error: %s\n", msg);
+    exit(1);
+}
