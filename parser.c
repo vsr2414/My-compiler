@@ -291,3 +291,8 @@ We’ve trained a model called ChatGPT which interacts in a conversational way. 
 /*
 ChatGPT is a sibling model to InstructGPT⁠, which is trained to follow an instruction in a prompt and provide a detailed response.
 */
+
+/*
+We are excited to introduce ChatGPT to get users’ feedback and learn about its strengths and weaknesses. During the research preview, usage of ChatGPT is free. Try it now at chatgpt.com⁠(opens in a new window).
+*/
+
