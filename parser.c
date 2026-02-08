@@ -321,3 +321,13 @@ If faint lines appear only under this setup, it’s a potential early green line
 
 60 Hz or Natural mode will likely hide the line until hardware worsens
 */
+
+/*
+Step 3: Gentle Pressure Test (Optional, With Caution)
+
+Using clean fingers, gently press near the screen edges while viewing the solid color
+
+Do NOT press hard — just a light touch along the frame
+
+This can reveal connector issues without damaging the panel
+*/
