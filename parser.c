@@ -345,3 +345,17 @@ Pay extra attention to edges, corners, and along the top and bottom
 
 Hardware defects often show up first as faint green/red/blue lines on a solid background.
 */
+
+/*
+Step 1: Set Up the Screen
+
+Go to Settings → Display → Screen Mode
+
+Set it to Vivid (this stresses the display most)
+
+Go to Settings → Display → Motion Smoothness
+
+Set it to 120 Hz (highest refresh rate)
+
+This combo is the “stress test” for revealing latent green line issues.
+*/
