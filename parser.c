@@ -331,3 +331,17 @@ Do NOT press hard — just a light touch along the frame
 
 This can reveal connector issues without damaging the panel
 */
+
+/*
+Step 2: Display a Solid Color
+
+Open a full-screen solid color image (red, green, blue, and white) — you can find test images online or use a simple gallery app
+
+View each color full-screen for 30–60 seconds
+
+Look carefully at all parts of the screen
+
+Pay extra attention to edges, corners, and along the top and bottom
+
+Hardware defects often show up first as faint green/red/blue lines on a solid background.
+*/
