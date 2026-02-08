@@ -359,3 +359,17 @@ Set it to 120 Hz (highest refresh rate)
 
 This combo is the “stress test” for revealing latent green line issues.
 */
+
+/*
+2️⃣ Refresh Rate: 60 Hz vs. 120 Hz
+
+120 Hz:
+
+Higher refresh rate = more frequent screen updates
+
+On panels with marginal hardware, this can also trigger a green line
+
+60 Hz:
+
+Lower stress → less likely to trigger it
+*/
