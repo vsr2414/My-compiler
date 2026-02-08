@@ -373,3 +373,13 @@ On panels with marginal hardware, this can also trigger a green line
 
 Lower stress → less likely to trigger it
 */
+
+/*
+Set it to Vivid (this stresses the display most)
+
+Go to Settings → Display → Motion Smoothness
+
+Set it to 120 Hz (highest refresh rate)
+
+This combo is the “stress test” for revealing latent green line issues.
+*/
