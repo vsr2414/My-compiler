@@ -311,3 +311,13 @@ The model is often excessively verbose and overuses certain phrases, such as res
 Ideally, the model would ask clarifying questions when the user provided an ambiguous query. Instead, our current models usually guess what the user intended.
 While we’ve made efforts to make the model refuse inappropriate requests, it will sometimes respond to harmful instructions or exhibit biased behavior. We’re using the Moderation API⁠ to warn or block certain types of unsafe content, but we expect it to have some false negatives and positives for now. We’re eager to collect user feedback to aid our ongoing work to improve this system.
 */
+
+/*
+Step 4: Observe
+
+If no line appears in Vivid + 120 Hz + solid color, your display is likely healthy
+
+If faint lines appear only under this setup, it’s a potential early green line
+
+60 Hz or Natural mode will likely hide the line until hardware worsens
+*/
